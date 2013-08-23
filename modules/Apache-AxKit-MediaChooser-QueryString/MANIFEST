@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Apache-AxKit-MediaChooser-QueryString.t
+lib/Apache/AxKit/MediaChooser/QueryString.pm

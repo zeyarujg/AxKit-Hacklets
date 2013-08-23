@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Apache-AxKit-Plugin-Locale.t
+lib/Apache/AxKit/Plugin/Locale.pm

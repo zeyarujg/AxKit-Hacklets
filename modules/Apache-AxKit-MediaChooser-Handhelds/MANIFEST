@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Apache-AxKit-MediaChooser-Handhelds.t
+lib/Apache/AxKit/MediaChooser/Handhelds.pm

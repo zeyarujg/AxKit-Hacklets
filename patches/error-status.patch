@@ -1,0 +1,19 @@
+--- lib/AxKit.pm	(Revision 546836)
++++ lib/AxKit.pm	(Arbeitskopie)
+@@ -24,6 +24,7 @@
+ use Apache qw(warn);
+ use Apache::Log;
+ use Apache::Constants ':common';
++use Apache::Constants ':http';
+ use Apache::AxKit::Exception;
+ use Apache::AxKit::ConfigReader;
+ use Apache::AxKit::Cache;
+@@ -670,6 +671,8 @@
+             );
+ 
+     $r->pnotes('xml_string', $error);
++    
++    $r->status(HTTP_INTERNAL_SERVER_ERROR);
+ 
+     eval {
+         process_request($r, $provider, $error_styles);
