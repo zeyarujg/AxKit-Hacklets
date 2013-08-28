@@ -44,3 +44,7 @@ Patches
 
     Have AxKit serving its ErrorPage/Stacktraces with a 500/Internal Server
     Error instead of 200/OK. 
+
+* XML-Filter-GenericChunk.patch
+
+    A NYTProf-guided attempt to make XML::Filter::GenericChunk a little bit faster.
