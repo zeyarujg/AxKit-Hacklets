@@ -49,13 +49,15 @@ Patches
 
     A NYTProf-guided attempt to make XML::Filter::GenericChunk a little bit faster.
 
-* xmlsave.html5.patch
+* xmlsave.html5.patch (libxml2-2.9.1/xmlsave.c)
 
-    An experiment wrt. serialisation as HTML5 polyglot w/ libxml2+libxslt
-    The patch extends the serialisers’ XHTML-compatibility routines i.e. 
-    checks for the 'about:legacy-compat' System ID and the XHTML namespace.    
-    The new void HTML5 elements were added. (HTML5 defines the following 
-    elements as empty: area, base, br, col, embed, hr, img, input, keygen, 
-    link, meta, param, source, track, wbr; see 
+    An experimental patch for libxml2 to allow HTML5 Polyglot Markup
+    serialisation.
+
+    The patch extends the serialisers’ existing XHTML-compatibility routines
+    i.e. it checks for the 'about:legacy-compat' SystemID and the
+    XHTML-namespace. The six new void HTML5 elements were added. (HTML5 defines
+    the following elements as empty: area, base, br, col, embed, hr, img, input,
+    keygen, link, meta, param, source, track, wbr; see "3.6.1 Void elements" in:
     http://dev.w3.org/html5/html-xhtml-author-guide/#empty-elements)
 
