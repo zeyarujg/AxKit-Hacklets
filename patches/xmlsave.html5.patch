@@ -1,0 +1,69 @@
+--- xmlsave.c.orig	2013-02-01 16:00:22.201231000 +0100
++++ xmlsave.c	2013-02-05 13:13:46.245039000 +0100
+@@ -40,6 +40,8 @@
+    "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ #define XHTML_TRANS_SYSTEM_ID BAD_CAST \
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
++#define HTML5_SYSTEM_ID BAD_CAST \
++   "about:legacy-compat"
+ 
+ #define XHTML_NS_NAME BAD_CAST "http://www.w3.org/1999/xhtml"
+ /**
+@@ -64,6 +66,7 @@
+ 	if (xmlStrEqual(systemID, XHTML_STRICT_SYSTEM_ID)) return(1);
+ 	if (xmlStrEqual(systemID, XHTML_FRAME_SYSTEM_ID)) return(1);
+ 	if (xmlStrEqual(systemID, XHTML_TRANS_SYSTEM_ID)) return(1);
++	if (xmlStrEqual(systemID, HTML5_SYSTEM_ID)) return(1);
+     }
+     return(0);
+ }
+@@ -1285,15 +1288,21 @@
+ 		return(1);
+ 	    if (xmlStrEqual(node->name, BAD_CAST "base"))
+ 		return(1);
+-	    if (xmlStrEqual(node->name, BAD_CAST "basefont"))
++	    if (xmlStrEqual(node->name, BAD_CAST "basefont")) /*!HTML5*/
+ 		return(1);
+ 	    return(0);
+ 	case 'c':
+ 	    if (xmlStrEqual(node->name, BAD_CAST "col"))
+ 		return(1);
++        if (xmlStrEqual(node->name, BAD_CAST "command")) /*HTML5*/
++		return(1);
++	    return(0);
++    case 'e':
++        if (xmlStrEqual(node->name, BAD_CAST "embed")) /*HTML5*/
++		return(1);
+ 	    return(0);
+ 	case 'f':
+-	    if (xmlStrEqual(node->name, BAD_CAST "frame"))
++	    if (xmlStrEqual(node->name, BAD_CAST "frame")) /*!HTML5*/
+ 		return(1);
+ 	    return(0);
+ 	case 'h':
+@@ -1305,9 +1314,13 @@
+ 		return(1);
+ 	    if (xmlStrEqual(node->name, BAD_CAST "input"))
+ 		return(1);
+-	    if (xmlStrEqual(node->name, BAD_CAST "isindex"))
++	    if (xmlStrEqual(node->name, BAD_CAST "isindex")) /*!HTML5*/
+ 		return(1);
+ 	    return(0);
++    case 'k':
++        if (xmlStrEqual(node->name, BAD_CAST "keygen"))  /*HTML5*/
++		return(1);
++        return(0);
+ 	case 'l':
+ 	    if (xmlStrEqual(node->name, BAD_CAST "link"))
+ 		return(1);
+@@ -1320,6 +1333,10 @@
+ 	    if (xmlStrEqual(node->name, BAD_CAST "param"))
+ 		return(1);
+ 	    return(0);
++    case 's':
++        if (xmlStrEqual(node->name, BAD_CAST "source")) /*HTML5*/
++		return(1);
++	    return(0);
+     }
+     return(0);
+ }

@@ -48,3 +48,14 @@ Patches
 * XML-Filter-GenericChunk.patch
 
     A NYTProf-guided attempt to make XML::Filter::GenericChunk a little bit faster.
+
+* xmlsave.html5.patch
+
+    An experiment wrt. serialisation as HTML5 polyglot w/ libxml2+libxslt
+    The patch extends the serialisers’ XHTML-compatibility routines i.e. 
+    checks for the 'about:legacy-compat' System ID and the XHTML namespace.    
+    The new void HTML5 elements were added. (HTML5 defines the following 
+    elements as empty: area, base, br, col, embed, hr, img, input, keygen, 
+    link, meta, param, source, track, wbr; see 
+    http://dev.w3.org/html5/html-xhtml-author-guide/#empty-elements)
+
