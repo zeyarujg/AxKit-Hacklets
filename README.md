@@ -51,13 +51,14 @@ Patches
 
 * xmlsave.html5.patch (libxml2-2.9.1/xmlsave.c)
 
-    An experimental patch for libxml2 to allow HTML5 Polyglot Markup
-    serialisation.
+    An experimental patch for libxml2 to handle empty elements in HTML5 Polyglot
+    Markup serialisation.
 
     The patch extends the serialisers’ existing XHTML-compatibility routines
     i.e. it checks for the 'about:legacy-compat' SystemID and the
-    XHTML-namespace. The six new void HTML5 elements were added. (HTML5 defines
-    the following elements as empty: area, base, br, col, embed, hr, img, input,
-    keygen, link, meta, param, source, track, wbr; see "3.6.1 Void elements" in:
+    XHTML-namespace. The six new void HTML5 elements were added to
+    `xhtmlIsEmpty()`. (HTML5 defines the following elements as empty: area,
+    base, br, col, embed, hr, img, input, keygen, link, meta, param, source,
+    track, wbr; see "3.6.1 Void elements" in:
     http://dev.w3.org/html5/html-xhtml-author-guide/#empty-elements)
 
